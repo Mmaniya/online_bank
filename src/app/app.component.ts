@@ -3,7 +3,7 @@ import {ChangeDetectorRef, OnDestroy} from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { AuthorizationService } from './services/authorization.service';
 import { Router } from '@angular/router';
-import { AppService } from './app.service';
+// import { AppService } from './app.service';
 import { AuthenticationService } from './services/authentication.service';
 @Component({
   selector: 'app-root',
@@ -15,29 +15,29 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
               private authorizationService: AuthorizationService,
               private router: Router,
-              private appService: AppService,
+              // private appService: AppService,
               private authenticationService: AuthenticationService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this.mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this.mobileQueryListener);
-    this.appService.configObservable.subscribe(userStatus => {
-      this.isLoggedIn = userStatus;
-    });
+    // this.appService.configObservable.subscribe(userStatus => {
+    //   this.isLoggedIn = userStatus;
+    // });
   }
   private readonly mobileQueryListener: () => void;
   isLoggedIn = false;
   sidenavContents: any = [
-    {
-      title: 'Dashboard',
-      icon: 'dashboard',
-      link: 'dashboard'
-    },
+    // {
+    //   title: 'Dashboard',
+    //   icon: 'dashboard',
+    //   link: 'dashboard'
+    // },
   ];
-  title = 'Online-Banking-App-3.0';
+  title = 'Online-Banking';
   mobileQuery: MediaQueryList;
   ngOnInit() {
-    if (localStorage.getItem('token')) {
-      this.router.navigate(['/dashboard']);
+    if (localStorage.getItem('user')) {
+      // this.router.navigate(['/dashboard']);
     }
     this.authenticationService.login('mifos', 'password');
   }

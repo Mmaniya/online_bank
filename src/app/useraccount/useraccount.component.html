@@ -1,0 +1,93 @@
+<div class="row">
+  <div class="col-lg-6">
+    <mat-card class="mid-card shadow accounts font-style">
+      <div>
+        <p class="mid-card-left ">Customer Name :-</p>
+        <p class="mid-card-right ">{{username}}</p>
+      </div>
+    </mat-card>
+  </div>
+  <div class="col-lg-6">
+    <mat-card class="mid-card shadow loans font-style">
+      <div>
+        <p class="mid-card-left ">Customer Id :- </p>
+        <p class="mid-card-right">{{userid}}</p>
+      </div>
+    </mat-card>
+  </div>
+</div>
+<div class="container-fluid">
+
+  <div class="row" id="charts">
+    <div class="col-md-4">
+      <mat-card class="shadow">
+        <h2>Customer Details</h2>
+
+        <mat-form-field class="col-md-12">
+          <input [(ngModel)]="address" name="address" required matInput placeholder="Address">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="col-md-12">
+          <mat-label>Gender</mat-label>
+          <mat-select [(ngModel)]="genter">
+            <mat-option value="male">Male</mat-option>
+            <mat-option value="female">Female</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="col-md-12">
+          <!-- <input [(ngModel)]="dob" name="dob" type="date" required matInput placeholder="DOB"> -->
+          <mat-label>Date of Birth</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="dob" name="dob">
+          <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+          <mat-datepicker #picker ></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="col-md-12">
+          <input [(ngModel)]="mobile" name="mobile" type="number" required matInput placeholder="Mobile">
+        </mat-form-field>
+      </mat-card>
+
+    </div>
+    <div class="col-md-4">
+      <mat-card class="shadow">
+        <!-- <app-loans-account-pie-chart></app-loans-account-pie-chart> -->
+        <img style="width: 100%; height: 300px;"
+          src="https://www.thebalance.com/thmb/QKdak2jvsD1uGh9AxoLvJ9WViAw=/1043x1006/filters:fill(auto,1)/Credit-Card-Bank-Account-by-lvcandy-Getty-488389053-56a1c27c5f9b58b7d0c25749.jpg">
+      </mat-card>
+    </div>
+    <div class="col-md-4">
+      <mat-card class="shadow">
+        <h2>Account Details</h2>
+        <mat-form-field class="col-md-12">
+          <input [(ngModel)]="username" value={{username}} readonly matInput placeholder="Account Name">
+        </mat-form-field>
+        <mat-form-field class="col-md-12">
+          <input [(ngModel)]="accountsno" name="Accountno" required matInput placeholder="Account No">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="col-md-12">
+          <input [(ngModel)]="pincode" name="pincode" required matInput placeholder="Pin No">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="col-md-12">
+          <input [(ngModel)]="amount" name="amount" required matInput placeholder="Amount">
+        </mat-form-field>
+      </mat-card>
+    </div>
+
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-4">
+      <button mat-raised-button class="col-md-12" color="primary" (click)="formClear()">Clear</button>
+    </div>
+    <div class="col-md-4">
+      <button mat-raised-button class="col-md-12" color="primary" (click)="formSubmit()">Submit</button>
+    </div>
+    <div class="col-md-4">
+      <button mat-raised-button class="col-md-12" color="primary" (click)="formExit()">Logout</button>
+    </div>
+  </div>
+
+</div>

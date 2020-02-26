@@ -1,8 +1,8 @@
 import {AfterContentInit, Component, OnInit, AfterContentChecked} from '@angular/core';
-import { LoanService } from '../services/loan.service';
-import { SavingsService } from '../services/savings.service';
-import { SharesService } from '../services/shares.service';
-import { AccountsService } from '../services/accounts.service';
+// import { LoanService } from '../services/loan.service';
+// import { SavingsService } from '../services/savings.service';
+// import { SharesService } from '../services/shares.service';
+// import { AccountsService } from '../services/accounts.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -26,10 +26,11 @@ export class DashboardComponent implements OnInit, AfterContentInit, AfterConten
   savingsAccounts: any[] = [];
   shareAccounts: any[] = [];
 
-  constructor(private loanService: LoanService,
-              private savingsService: SavingsService,
-              private sharesService: SharesService,
-              private accountsService: AccountsService,
+  constructor(
+              // private loanService: LoanService,
+              // private savingsService: SavingsService,
+              // private sharesService: SharesService,
+              // private accountsService: AccountsService,
               private router: Router) {
                }
   ngAfterContentInit() {
@@ -40,38 +41,38 @@ export class DashboardComponent implements OnInit, AfterContentInit, AfterConten
   }
   // Fetching client account summary
   ngOnInit() {
-    this.accountsService.getClientAccounts().subscribe((data: any) => {
+    // this.accountsService.getClientAccounts().subscribe((data: any) => {
 
-      // Check if user has loan accounts
-      if (data.loanAccounts) {
-        // Find totol number of loan accounts
-        this.totalLoanAccounts = data.loanAccounts.length;
-        // Find sum of loan amt assured.
-        for (const item of data.loanAccounts) {
-          if (item.loanBalance) {
-            this.loansBalance = this.loansBalance + item.originalLoan;
-          }
-        }
-      }
+    //   // Check if user has loan accounts
+    //   if (data.loanAccounts) {
+    //     // Find totol number of loan accounts
+    //     this.totalLoanAccounts = data.loanAccounts.length;
+    //     // Find sum of loan amt assured.
+    //     for (const item of data.loanAccounts) {
+    //       if (item.loanBalance) {
+    //         this.loansBalance = this.loansBalance + item.originalLoan;
+    //       }
+    //     }
+    //   }
 
-      // Check if user has savings account
-      if (data.savingsAccounts) {
-        // Calculate total number of savings accounts
-        this.totalSavingsAccounts = data.savingsAccounts.length;
-        // find sum of all Savings Account Balances
-        for (const item of data.savingsAccounts) {
-        if (item.accountBalance) {
-            this.savingsBalance = this.savingsBalance + item.accountBalance;
-        }
-    }
-      }
-      if (data.shareAccounts) {
-        this.totalSharesAccounts = data.shareAccounts.length;
-      }
-      this.savingsAccounts = data.savingsAccounts;
-      this.loanAccounts = data.loanAccounts;
-      this.shareAccounts = data.shareAccounts;
-    });
+    //   // Check if user has savings account
+    //   if (data.savingsAccounts) {
+    //     // Calculate total number of savings accounts
+    //     this.totalSavingsAccounts = data.savingsAccounts.length;
+    //     // find sum of all Savings Account Balances
+    //     for (const item of data.savingsAccounts) {
+    //     if (item.accountBalance) {
+    //         this.savingsBalance = this.savingsBalance + item.accountBalance;
+    //     }
+    // }
+    //   }
+    //   if (data.shareAccounts) {
+    //     this.totalSharesAccounts = data.shareAccounts.length;
+    //   }
+    //   this.savingsAccounts = data.savingsAccounts;
+    //   this.loanAccounts = data.loanAccounts;
+    //   this.shareAccounts = data.shareAccounts;
+    // });
 
   }
 

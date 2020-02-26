@@ -21,6 +21,7 @@ import { LoansAccountPieChartComponent } from './dashboard/loans-account-pie-cha
 import { DoughnutChartComponent, PieChartComponent } from 'angular-d3-charts'; // this is needed!
 import { GoogleChartsModule } from 'angular-google-charts';
 import { SharesAccountPieChartComponent } from './dashboard/shares-account-pie-chart/shares-account-pie-chart.component';
+import { UseraccountComponent } from './useraccount/useraccount.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { SharesAccountPieChartComponent } from './dashboard/shares-account-pie-c
     DashboardComponent,
     SavingsAccountPieChartComponent,
     LoansAccountPieChartComponent,
-    SharesAccountPieChartComponent
+    SharesAccountPieChartComponent,
+    UseraccountComponent
   ],
   imports: [
     BrowserAnimationsModule,

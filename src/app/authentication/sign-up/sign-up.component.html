@@ -2,26 +2,23 @@
 
   
 
-<form  #loginForm="ngForm" (ngSubmit)='onSignUp(loginForm)' >
+<form  #loginForm="ngForm"  >
 
-  <img src="https://www.google-melange.com/archive/gci/2014/orgs/mifos/logo-200.png" alt="No Image found">
+  <img src="../../../assets/images/RBI.png" alt="No Image found">
   <mat-form-field>
-      <input [(ngModel)]="username" name="username" required matInput placeholder="Username">
+      <input [(ngModel)]="userid" name="userid" required matInput placeholder="UserId">
+    </mat-form-field>
+    <mat-form-field>
+        <input [(ngModel)]="username" name="username" required matInput placeholder="User Name">
     </mat-form-field>
     <mat-form-field>
         <input [(ngModel)]="password" name="password" type="password" required matInput placeholder="Password">
       </mat-form-field>
       <mat-form-field>
-          <input [(ngModel)]="firstname" name="firstname"  required matInput placeholder="First Name">
+          <input [(ngModel)]="confirmpass" name="confirmpass" type="password" required matInput placeholder="Confirm Password">
       </mat-form-field>
-      <mat-form-field>
-          <input [(ngModel)]="lastname" name="lastname" required matInput placeholder="Last Name">
-      </mat-form-field>
-      <mat-form-field>
-          <input [(ngModel)]="email" name="email" required matInput placeholder="E-mail">
-      </mat-form-field>
-      <button type="submit" [disabled]="!loginForm.valid"  mat-raised-button color="primary">Sign up</button>
-      <button mat-stroked-button color="accent" (click)="onNoClick()">Registered? Login</button>
+      <button type="submit" [disabled]="!loginForm.valid" (click)="onClick()"  mat-raised-button color="primary">Sign up</button>
+      <!-- <button mat-stroked-button color="accent" (click)="onNoClick()">Registered? Login</button> -->
 
 
 </form>

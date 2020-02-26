@@ -13,11 +13,11 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  onCreateUser(user: any) {
-    return this.http.post<any>
-    ('https://mobile.openmf.org/fineract-provider/api/v1/users?username=mifos&password=password',
-     httpOptions);
-  }
+  // onCreateUser(user: any) {
+  //   return this.http.post<any>
+  //   ('https://mobile.openmf.org/fineract-provider/api/v1/users?username=mifos&password=password',
+  //    httpOptions);
+  // }
 
   requestOtp() {
 

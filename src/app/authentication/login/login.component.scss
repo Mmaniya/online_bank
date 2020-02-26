@@ -2,10 +2,10 @@
     background-color: white
 }
 .cover {
-    background-image: url('../../../assets/images/cover.png');
+    background-image: url('../../../assets/images/bank.jpg');
     background-size: cover;
     color: white;
-    height: 900px;
+    height: 100%;
   }
   .cover-body{
       padding: 70px;
@@ -22,10 +22,10 @@
   }
 
   img{
-      width: 200px;
-      height: 200px;
-      display:block;
-      margin:auto;
+      width: 80%;
+      // height: 200px;
+      // display:block;
+      margin:45px;
   }
   .mat-form-field{
       width: 100%;
