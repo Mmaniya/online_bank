@@ -1,0 +1,12 @@
+
+<form  #loginForm="ngForm" >
+    <br>
+      <mat-form-field>
+          <input [(ngModel)]="removeamount" name="removeamount"  required matInput placeholder="Withdraw Amount">
+        </mat-form-field>
+        <button type="submit" [disabled]="!loginForm.valid"  mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+        <br>
+        <h6>Maximun withdraw amount is ₹25000</h6>
+  </form>
+  
+  

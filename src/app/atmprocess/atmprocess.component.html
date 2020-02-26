@@ -1,0 +1,42 @@
+<div class="row main-body" style="height: 100%">
+  <!-- <div layout="col" layout-align="start center" class="cover" flex-gt-md="70" hide-xs hide-sm>
+      <div flex="60" class="cover-content">
+          <h1 class="md-display-2 cover-title">Self Service</h1>
+          <p class="md-headline">Self Service is designed by the Mifos Initiative - a global community that aims to
+              speed-up the elimination of poverty by enabling organizations to more effectively and efficiently
+              deliver responsible financial services to the world’s poor and unbanked.</p>
+      </div>
+  </div> -->
+  <div class="col-md-8">
+    <div class="cover">
+      <div class="cover-body">
+        <div class="cover-title">
+          RBI Banking service
+        </div>
+        <div class="cover-content">
+          The Reserve Bank of India is India's central bank, which controls the issue and supply of the Indian
+          rupee. RBI is the regulator of entire Banking in India. RBI plays an important part in the
+          Development Strategy of the Government of India
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-md-4">
+    <form #loginForm="ngForm">
+ 
+      <img src="../../../assets/images/RBI.png" alt="No Image found">
+      <mat-form-field>
+        <input [(ngModel)]="username" name="username" required matInput placeholder="User Id">
+      </mat-form-field>
+      <mat-form-field>
+        <input [(ngModel)]="pinnumber" name="pinnumber" type="number" required matInput placeholder="Pin Code">
+      </mat-form-field>
+      <button type="submit" [disabled]="!loginForm.valid" (click)="loginpage()" mat-raised-button
+        id="login-color">Enter</button>
+    </form>
+    <br>
+    <!-- <button mat-raised-button (click)="onForgotPassword()">Forgot Password ?</button> -->
+  </div>
+
+</div>

@@ -67,11 +67,11 @@
         </mat-form-field>
         <br>
         <mat-form-field class="col-md-12">
-          <input [(ngModel)]="pincode" name="pincode" required matInput placeholder="Pin No">
+          <input [(ngModel)]="pincode" name="pincode" type="number" max="4" required matInput placeholder="Pin No">
         </mat-form-field>
         <br>
         <mat-form-field class="col-md-12">
-          <input [(ngModel)]="amount" name="amount" required matInput placeholder="Amount">
+          <input [(ngModel)]="amount" name="amount" type="number"  required matInput placeholder="Amount">
         </mat-form-field>
       </mat-card>
     </div>
@@ -86,7 +86,7 @@
       <button mat-raised-button class="col-md-12" color="primary" (click)="formSubmit()">Submit</button>
     </div>
     <div class="col-md-4">
-      <button mat-raised-button class="col-md-12" color="primary" (click)="formExit()">Logout</button>
+      <button mat-raised-button class="col-md-12" color="primary" [routerLink]="['/']">Logout</button>
     </div>
   </div>
 

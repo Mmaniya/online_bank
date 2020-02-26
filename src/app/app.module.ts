@@ -9,7 +9,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AuthorizationService } from './services/authorization.service';
 import { SignUpComponent } from './authentication/sign-up/sign-up.component';
-import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
 import { VerificationComponent } from './authentication/verification/verification.component';
 import { AppService } from './app.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -22,19 +21,22 @@ import { DoughnutChartComponent, PieChartComponent } from 'angular-d3-charts'; /
 import { GoogleChartsModule } from 'angular-google-charts';
 import { SharesAccountPieChartComponent } from './dashboard/shares-account-pie-chart/shares-account-pie-chart.component';
 import { UseraccountComponent } from './useraccount/useraccount.component';
+import { AtmprocessComponent } from './atmprocess/atmprocess.component';
+import { WithdrawComponent } from './withdraw/withdraw.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ForgotPasswordComponent,
     SignUpComponent,
     VerificationComponent,
     DashboardComponent,
     SavingsAccountPieChartComponent,
     LoansAccountPieChartComponent,
     SharesAccountPieChartComponent,
-    UseraccountComponent
+    UseraccountComponent,
+    AtmprocessComponent,
+    WithdrawComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -51,6 +53,6 @@ import { UseraccountComponent } from './useraccount/useraccount.component';
      LoanService,
      AccountsService],
   bootstrap: [AppComponent],
-  entryComponents : [SignUpComponent, VerificationComponent, ForgotPasswordComponent]
+  entryComponents : [SignUpComponent, VerificationComponent]
 })
 export class AppModule { }

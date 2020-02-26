@@ -1,14 +1,15 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-verification',
-  templateUrl: './verification.component.html',
-  styleUrls: ['./verification.component.scss']
+  selector: 'app-withdraw',
+  templateUrl: './withdraw.component.html',
+  styleUrls: ['./withdraw.component.scss']
 })
-export class VerificationComponent implements OnInit {
+export class WithdrawComponent implements OnInit {
+
   data: any;
   username: string;
   userid: string;
@@ -23,7 +24,7 @@ export class VerificationComponent implements OnInit {
   apiUrl: string = 'http://localhost/bankauth/User/addamount.php';
 
   constructor(
-    public dialogRef: MatDialogRef<VerificationComponent>,
+    public dialogRef: MatDialogRef<WithdrawComponent>,
     private http: HttpClient,
     private router: Router) {}
   onNoClick(): void {
@@ -56,4 +57,5 @@ export class VerificationComponent implements OnInit {
     );
 
   }
+
 }

@@ -5,13 +5,7 @@ import { MatSnackBar, MatDialog } from '@angular/material';
 import { SignUpComponent } from '../sign-up/sign-up.component';
 import { AppService } from 'src/app/app.service';
 import { HttpClient } from '@angular/common/http';
-import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
-// import { AuthenticationService } from 'src/app/services/authentication.service';
-// import { NgForm } from '@angular/forms';
-export interface DialogData {
-  animal: string;
-  name: string;
-}
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -23,8 +17,6 @@ export class LoginComponent implements OnInit {
   password: string;
   confirmpass: string;
 
-  selected = 'English (Default)';
-  userStatus = false;
   constructor(private router: Router,
               // private authenticationService: AuthenticationService,
               private snackBar: MatSnackBar,
@@ -93,9 +85,5 @@ export class LoginComponent implements OnInit {
       height: '600px'
     });
   }
-  onForgotPassword() {
-    this.dialog.open(ForgotPasswordComponent, {
-      width: '500px',
-    });
-  }
+
 }
