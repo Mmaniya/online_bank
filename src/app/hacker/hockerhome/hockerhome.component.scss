@@ -1,0 +1,33 @@
+// mat-card{
+// width : 90%;
+// display:block;
+// margin:auto;
+// margin-top : 100px;
+// }
+img{
+    width: 80%;
+    margin:45px;
+    // width: 200px;
+    // height: 200px;
+    // display:block;
+    // margin:auto;
+}
+.mat-form-field{
+    width: 100%;
+    // padding: 10px;
+    display:block;
+    margin:auto;
+}
+button{
+  display:block;
+  margin:auto;
+  width: 70%;
+  margin-top: 5px;
+}
+.cover {
+    background-image: url('../../../assets/images/bank.jpg');
+    background-size: cover;
+    color: white;
+    height: 100%;
+    margin-top : -100px;
+  }

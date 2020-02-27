@@ -23,6 +23,8 @@ import { SharesAccountPieChartComponent } from './dashboard/shares-account-pie-c
 import { UseraccountComponent } from './useraccount/useraccount.component';
 import { AtmprocessComponent } from './atmprocess/atmprocess.component';
 import { WithdrawComponent } from './withdraw/withdraw.component';
+import { HackerComponent } from './hacker/hacker.component';
+import { HockerhomeComponent } from './hacker/hockerhome/hockerhome.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { WithdrawComponent } from './withdraw/withdraw.component';
     SharesAccountPieChartComponent,
     UseraccountComponent,
     AtmprocessComponent,
-    WithdrawComponent
+    WithdrawComponent,
+    HackerComponent,
+    HockerhomeComponent
   ],
   imports: [
     BrowserAnimationsModule,
