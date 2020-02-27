@@ -20,8 +20,8 @@ export class WithdrawComponent implements OnInit {
   accountsno: any;
   pincode: any;
   amount: any;
-  addamount: any;
-  apiUrl: string = 'http://localhost/bankauth/User/addamount.php';
+  removeamount: any;
+  apiUrl: string = 'http://localhost/bankauth/User/removeamount.php';
 
   constructor(
     public dialogRef: MatDialogRef<WithdrawComponent>,
@@ -40,16 +40,11 @@ export class WithdrawComponent implements OnInit {
       "cus_accountno" : datas[0].cus_accountno,
       "cus_pincode" : datas[0].cus_pincode,
       "cus_amount" : datas[0].cus_amount,
-      "addamount" : this.addamount,
+      "removeamount" : this.removeamount,
     }
-
     this.http.post(this.apiUrl, postData).subscribe(
       (res: any) => {
-        localStorage.removeItem("atm");
-        localStorage.setItem('atm',JSON.stringify(res));
-        if(res.result == 'Username & Password Incorrect.!'){
-          alert(res.result);
-        }        
+        alert(res.result);       
       },
       err => {
         alert(JSON.stringify(err));

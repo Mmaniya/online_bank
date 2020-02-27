@@ -25,6 +25,9 @@ import { AtmprocessComponent } from './atmprocess/atmprocess.component';
 import { WithdrawComponent } from './withdraw/withdraw.component';
 import { HackerComponent } from './hacker/hacker.component';
 import { HockerhomeComponent } from './hacker/hockerhome/hockerhome.component';
+import { AdminComponent } from './admin/admin.component';
+import { HomeComponent } from './admin/home/home.component';
+import { HackerhomeComponent } from './admin/hackerhome/hackerhome.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { HockerhomeComponent } from './hacker/hockerhome/hockerhome.component';
     AtmprocessComponent,
     WithdrawComponent,
     HackerComponent,
-    HockerhomeComponent
+    HockerhomeComponent,
+    AdminComponent,
+    HomeComponent,
+    HackerhomeComponent
   ],
   imports: [
     BrowserAnimationsModule,

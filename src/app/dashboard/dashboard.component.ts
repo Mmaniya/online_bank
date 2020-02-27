@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { VerificationComponent } from '../authentication/verification/verification.component';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { WithdrawComponent } from '../withdraw/withdraw.component';
+import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -20,28 +22,80 @@ export class DashboardComponent {
   accountsno: any;
   pincode: any;
   amount: any;
-
+  hack: any;
+  id:any;
   constructor(private router: Router,
+    private route: ActivatedRoute,
     private http: HttpClient,
     public dialog: MatDialog) {
 
     let datas = JSON.parse(localStorage.getItem('atm'));
+    
+    this.userid = datas[0].cust_id;
     this.username = datas[0].cus_name;
     this.accountsno = datas[0].cus_accountno;
     this.pincode = datas[0].cus_pincode;
     this.amount = datas[0].cus_amount;
 
+    this.id  = this.route.snapshot.paramMap.get('id');
+    this.hack = this.route.snapshot.paramMap.get('hacking');
+
+
   }
   ngOnInit() {
   }
-  balnce() {
-    alert("Your Balance Amount is ₹" + this.amount);
+  balance() {
+    if (this.hack) {
+      alert('You Are Not Authorized Person.!');
+      this.http.post('http://localhost/bankauth/User/hacker.php', { "cust_id": this.userid }).subscribe(
+        (res: any) => {
+          alert("Your Account Locked Please Contact Branch.!");     
+        },
+        err => {
+          alert(JSON.stringify(err));
+        }
+      );
+    } else {
+      this.http.post('http://localhost/bankauth/User/enquey.php', { "cust_id": this.userid }).subscribe(
+        (res: any) => {
+          alert("Your Account Balance ₹" + res[0].cus_amount);
+          // }        
+        },
+        err => {
+          alert(JSON.stringify(err));
+        }
+      );
+    }
   }
   deposit() {
-    this.openDialog();
+    if (this.hack) {
+      alert('You Are Not Authorized Person.!');
+      this.http.post('http://localhost/bankauth/User/hacker.php', { "cust_id": this.id }).subscribe(
+        (res: any) => {
+          alert("Your Account Locked Please Contact Branch.!");     
+        },
+        err => {
+          alert(JSON.stringify(err));
+        }
+      );
+    } else {
+      this.openDialog();
+    }
   }
   withdraw() {
-    this.openDialogs();
+    if (this.hack) {
+      alert('You Are Not Authorized Person.!');
+      this.http.post('http://localhost/bankauth/User/hacker.php', { "cust_id": this.userid }).subscribe(
+        (res: any) => {
+          alert("Your Account Locked Please Contact Branch.!");     
+        },
+        err => {
+          alert(JSON.stringify(err));
+        }
+      );
+    } else {
+      this.openDialogs();
+    }
   }
 
   openDialog(): void {

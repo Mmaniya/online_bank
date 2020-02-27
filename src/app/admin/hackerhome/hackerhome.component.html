@@ -1,0 +1,55 @@
+
+  <div class="container-fluid">
+  
+      <div class="row" id="charts">
+  
+    
+        <div class="col-md-12">
+          <mat-card class="shadow">
+            <h2>Hackers List</h2>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef> Cust id. </th>
+                  <td mat-cell *matCellDef="let hck"> {{hck.id}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef> Cust Name </th>
+                  <td mat-cell *matCellDef="let hck"> {{hck.name}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="acno">
+                  <th mat-header-cell *matHeaderCellDef> Cust Acno </th>
+                  <td mat-cell *matCellDef="let hck"> {{hck.acno}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="hacker_ip">
+                  <th mat-header-cell *matHeaderCellDef> Hacker Ip </th>
+                  <td mat-cell *matCellDef="let hck"> {{hck.hacker_ip}} </td>
+                </ng-container>
+  
+                <ng-container matColumnDef="date">
+                    <th mat-header-cell *matHeaderCellDef> Date </th>
+                    <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+                  </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+          </mat-card>
+        </div>
+    
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          <button mat-raised-button class="col-md-12" color="primary" (click)="formClear()">Customer List</button>
+        </div>
+    
+        <div class="col-md-6">
+          <button mat-raised-button class="col-md-12" color="primary" [routerLink]="['/admin']">Logout</button>
+        </div>
+      </div>
+    
+    </div>

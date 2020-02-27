@@ -10,7 +10,7 @@ import { HockerhomeComponent } from './hockerhome/hockerhome.component';
   styleUrls: ['./hacker.component.scss']
 })
 export class HackerComponent implements OnInit {
-
+  username: any;
   constructor(private router: Router,
     private http: HttpClient,
     public dialog: MatDialog) { }
@@ -18,10 +18,23 @@ export class HackerComponent implements OnInit {
   ngOnInit() {
   }
 
-  getdetails(){
-    this.dialog.open(HockerhomeComponent, {
+  getdetails() {
+
+    this.http.post('http://localhost/bankauth/User/enquey.php', {"cust_id": this.username}).subscribe(
+      (res: any) => {
+        if(res.cust_id != ''){
+        alert('Successfully hacked.!');
+        this.dialog.open(HockerhomeComponent, {
           width: '400px',
           height: '400px'
         });
+        }else{
+          alert('Try Again.!');
+        }
+      },
+      err => {
+        alert(JSON.stringify(err));
       }
+    );
+  }
 }

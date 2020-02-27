@@ -44,11 +44,7 @@ export class VerificationComponent implements OnInit {
 
     this.http.post(this.apiUrl, postData).subscribe(
       (res: any) => {
-        localStorage.removeItem("atm");
-        localStorage.setItem('atm',JSON.stringify(res));
-        // if(res.result == 'Username & Password Incorrect.!'){
-          alert(res.result);
-        // }        
+          alert(res.result);       
       },
       err => {
         alert(JSON.stringify(err));

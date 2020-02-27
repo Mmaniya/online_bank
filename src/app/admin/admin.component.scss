@@ -1,0 +1,50 @@
+.main-body{
+    background-color: white
+}
+.row .main-body{
+  height: 100% !important;
+}
+.cover {
+    background-image: url('../../assets/images/bank.jpg');
+    background-size: cover;
+    color: white;
+    height: 100%;
+  }
+  .cover-body{
+      padding: 70px;
+  }
+  .cover-content{
+    color : white;
+    font-style: italic;
+    font-size: 30px;
+  }
+  .cover-title {
+    border-bottom: 1px solid white;
+    padding-bottom: 10px;
+    font-size: 35px;
+  }
+
+  img{
+      width: 80%;
+      // height: 200px;
+      // display:block;
+      margin:45px;
+  }
+  .mat-form-field{
+      width: 100%;
+      padding: 10px;
+  }
+  button{
+    display:block;
+    margin:auto;
+    width: 70%;
+    margin-top: 5px;
+  }
+  @media only screen and (max-width: 600px) {
+    .cover {
+        display: none;
+      }
+  }
+  #login-color{
+ background-color: lightgreen;
+  }

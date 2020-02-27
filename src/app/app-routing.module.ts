@@ -8,6 +8,9 @@ import { AtmprocessComponent } from './atmprocess/atmprocess.component';
 import { WithdrawComponent } from './withdraw/withdraw.component';
 import { HackerComponent } from './hacker/hacker.component';
 import { HockerhomeComponent } from './hacker/hockerhome/hockerhome.component';
+import { AdminComponent } from './admin/admin.component';
+import { HomeComponent } from './admin/home/home.component';
+import { HackerhomeComponent } from './admin/hackerhome/hackerhome.component';
 
 const routes: Routes = [
   {path: '', component : LoginComponent},
@@ -17,6 +20,9 @@ const routes: Routes = [
   {path: 'withdraw', component : WithdrawComponent},
   {path: 'hacker', component : HackerComponent},
   {path: 'hack', component : HockerhomeComponent},
+  {path: 'admin', component : AdminComponent},
+  {path: 'home', component : HomeComponent},
+  {path: 'hackerhome', component : HackerhomeComponent},
 
   // {path: '**', redirectTo : 'dashboard'}
 ];
