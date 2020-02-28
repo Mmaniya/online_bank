@@ -7,7 +7,7 @@
         <div class="col-md-12">
           <mat-card class="shadow">
             <h2>Hackers List</h2>
-            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   
                 <ng-container matColumnDef="id">
                   <th mat-header-cell *matHeaderCellDef> Cust id. </th>
@@ -36,6 +36,21 @@
               
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table> -->
+              <table *ngIf="scanList">
+                <tr>
+                  <th>Cust id</th>
+                  <th>Cust Name</th>
+                  <th>Cust Acno</th>
+                  <th>Cust Ip</th>
+      
+                </tr>
+                <tr *ngFor="let hacker of scanList">
+                  <td>{{hacker.cust_id}}</td>
+                  <td>{{hacker.cust_name}}</td>
+                  <td>{{hacker.cust_acno}}</td>
+                  <td>{{hacker.block_ip}}</td>
+                </tr>
               </table>
           </mat-card>
         </div>
