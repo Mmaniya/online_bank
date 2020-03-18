@@ -25,6 +25,7 @@ export class UseraccountComponent implements OnInit {
   bankname:any;
   ipAddress = '';
   user_id : any;
+  isShown: boolean = false ; // hidden by default
 
   constructor(
     public dialog: MatDialog,
@@ -68,7 +69,9 @@ export class UseraccountComponent implements OnInit {
       this.amount = datas[0].cus_amount;
     });
   }
-
+  toggle(){
+    this.isShown = ! this.isShown;
+  }
   formSubmit() {
     let postData = {
       "cus_id": this.userid,

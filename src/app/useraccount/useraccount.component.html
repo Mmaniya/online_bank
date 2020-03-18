@@ -107,15 +107,23 @@
   </div>
   <br>
   <div class="row">
-    <div class="col-md-4">
-      <button mat-raised-button class="col-md-12" color="primary" (click)="formClear()">Clear</button>
+    <div class="col-md-3">
+      <button mat-raised-button class="col-md-12" (click) ="toggle()" color="primary" >Near Atm</button>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
+      <button mat-raised-button class="col-md-12"  color="primary" (click)="formClear()">Clear</button>
+    </div>
+    <div class="col-md-3">
       <button mat-raised-button class="col-md-12" color="primary" (click)="formSubmit()">Submit</button>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <button mat-raised-button class="col-md-12" color="primary" [routerLink]="['/']">Logout</button>
     </div>
   </div>
-
+  <div *ngIf="isShown">
+  <mat-card class="shadow" >
+    <!-- <app-loans-account-pie-chart></app-loans-account-pie-chart> -->
+    <img style="width: 100%; height: 570px;" src="../../assets/images/map.png">
+  </mat-card>
+</div>
 </div>
