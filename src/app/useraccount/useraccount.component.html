@@ -14,15 +14,38 @@
         <p class="mid-card-right">{{userid}}</p>
       </div>
     </mat-card>
+ 
+
   </div>
 </div>
 <div class="container-fluid">
-
   <div class="row" id="charts">
     <div class="col-md-4">
       <mat-card class="shadow">
         <h2>Customer Details</h2>
-
+        <mat-form-field class="col-md-12" style="display: none;">
+          <input  name="user_id" required matInput value={{userid}}>
+        </mat-form-field>
+      
+        <mat-form-field class="col-md-12">
+          <mat-label>Select Bank</mat-label>
+          <mat-select [(ngModel)]="bankname" (selectionChange)="getIPAddress()">
+            <mat-option value="axis">Axis Bank Limited</mat-option>
+            <mat-option value="cub">City Union Bank Limited</mat-option>
+            <mat-option value="fedaral">Federal Bank Limited</mat-option>
+            <mat-option value="hdfc">HDFC Bank Limited</mat-option>
+            <mat-option value="icici">ICICI Bank Limited</mat-option>
+            <mat-option value="indusind">IndusInd Bank Limited</mat-option>
+            <mat-option value="idfc">IDFC Bank Limited</mat-option>
+            <mat-option value="karnataka">Karnataka Bank Limited</mat-option>
+            <mat-option value="kvb">Karur Vysya Bank Limited</mat-option>
+            <mat-option value="kotak">Kotak Mahindra Bank Limited</mat-option>
+            <mat-option value="sbi">SBI bank</mat-option>
+            <mat-option value="indian">Indian Bank</mat-option>
+            <mat-option value="canara">Canara Bank</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
         <mat-form-field class="col-md-12">
           <input [(ngModel)]="address" name="address" required matInput placeholder="Address">
         </mat-form-field>
@@ -44,28 +67,33 @@
         </mat-form-field>
 
         <mat-form-field class="col-md-12">
-          <input [(ngModel)]="mobile" name="mobile" type="number" required matInput placeholder="Mobile">
+          <input [(ngModel)]="email" name="email" type="email" required matInput placeholder="E-Mail">
         </mat-form-field>
+
       </mat-card>
 
     </div>
     <div class="col-md-4">
       <mat-card class="shadow">
         <!-- <app-loans-account-pie-chart></app-loans-account-pie-chart> -->
-        <img style="width: 100%; height: 300px;"
-          src="https://www.thebalance.com/thmb/QKdak2jvsD1uGh9AxoLvJ9WViAw=/1043x1006/filters:fill(auto,1)/Credit-Card-Bank-Account-by-lvcandy-Getty-488389053-56a1c27c5f9b58b7d0c25749.jpg">
+        <img style="width: 100%; height: 370px;" src="../../assets/images/bank.jpg">
       </mat-card>
     </div>
     <div class="col-md-4">
       <mat-card class="shadow">
         <h2>Account Details</h2>
         <mat-form-field class="col-md-12">
-          <input [(ngModel)]="username" value={{username}} readonly matInput placeholder="Account Name">
+          <input [(ngModel)]="mobile" name="mobile" type="number" required matInput placeholder="Mobile">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="col-md-12">
+          <input [(ngModel)]="username" value={{username}} required matInput placeholder="Account Name">
         </mat-form-field>
         <mat-form-field class="col-md-12">
           <input [(ngModel)]="accountsno" name="Accountno" required matInput placeholder="Account No">
         </mat-form-field>
         <br>
+
         <mat-form-field class="col-md-12">
           <input [(ngModel)]="pincode" name="pincode" type="number" max="4" required matInput placeholder="Pin No">
         </mat-form-field>

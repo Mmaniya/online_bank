@@ -22,6 +22,7 @@ export class DashboardComponent {
   accountsno: any;
   pincode: any;
   amount: any;
+  bank:any;
   hack: any;
   id:any;
   constructor(private router: Router,
@@ -33,6 +34,7 @@ export class DashboardComponent {
     
     this.userid = datas[0].cust_id;
     this.username = datas[0].cus_name;
+    this.bank = datas[0].cus_bank;
     this.accountsno = datas[0].cus_accountno;
     this.pincode = datas[0].cus_pincode;
     this.amount = datas[0].cus_amount;
@@ -46,17 +48,16 @@ export class DashboardComponent {
   }
   balance() {
     if (this.hack) {
-      alert('You Are Not Authorized Person.!');
-      this.http.post('http://localhost/bankauth/User/hacker.php', { "cust_id": this.userid }).subscribe(
+      this.http.post('http://localhost/bankauth/User/hacker.php', { "cust_id": this.userid,"cust_bank": this.bank,"cust_pin":this.pincode }).subscribe(
         (res: any) => {
-          alert("Your Account Locked Please Contact Branch.!");     
+          alert("You Are Not Authorized Person.! Your Account Locked Please Contact Branch.!");     
         },
         err => {
           alert(JSON.stringify(err));
         }
       );
     } else {
-      this.http.post('http://localhost/bankauth/User/enquey.php', { "cust_id": this.userid }).subscribe(
+      this.http.post('http://localhost/bankauth/User/enquey.php', { "cust_id": this.userid,"cust_bank": this.bank,"cust_pin":this.pincode }).subscribe(
         (res: any) => {
           alert("Your Account Balance ₹" + res[0].cus_amount);
           // }        
@@ -69,10 +70,9 @@ export class DashboardComponent {
   }
   deposit() {
     if (this.hack) {
-      alert('You Are Not Authorized Person.!');
-      this.http.post('http://localhost/bankauth/User/hacker.php', { "cust_id": this.id }).subscribe(
+      this.http.post('http://localhost/bankauth/User/hacker.php', { "cust_id": this.id,"cust_bank": this.bank,"cust_pin":this.pincode }).subscribe(
         (res: any) => {
-          alert("Your Account Locked Please Contact Branch.!");     
+          alert("You Are Not Authorized Person.! Your Account Locked Please Contact Branch.!");     
         },
         err => {
           alert(JSON.stringify(err));
@@ -84,10 +84,9 @@ export class DashboardComponent {
   }
   withdraw() {
     if (this.hack) {
-      alert('You Are Not Authorized Person.!');
-      this.http.post('http://localhost/bankauth/User/hacker.php', { "cust_id": this.userid }).subscribe(
+      this.http.post('http://localhost/bankauth/User/hacker.php', { "cust_id": this.userid,"cust_bank": this.bank,"cust_pin":this.pincode }).subscribe(
         (res: any) => {
-          alert("Your Account Locked Please Contact Branch.!");     
+          alert("You Are Not Authorized Person.! Your Account Locked Please Contact Branch.!");     
         },
         err => {
           alert(JSON.stringify(err));

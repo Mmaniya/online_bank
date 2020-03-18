@@ -21,6 +21,10 @@ export class UseraccountComponent implements OnInit {
   accountsno: any;
   pincode: any;
   amount: any;
+  email:any;
+  bankname:any;
+  ipAddress = '';
+  user_id : any;
 
   constructor(
     public dialog: MatDialog,
@@ -30,6 +34,7 @@ export class UseraccountComponent implements OnInit {
     let data = JSON.parse(localStorage.getItem('user'));
     this.username = data[0].cus_name;
     this.userid = data[0].cus_id;
+    this.IPAddress();
 
     this.getIPAddress();
   }
@@ -37,22 +42,32 @@ export class UseraccountComponent implements OnInit {
   apiUrl: string = 'http://localhost/bankauth/User/updateuser.php';
 
   ngOnInit() {
+    this.IPAddress();
   }
+  IPAddress() {
+    this.http.get("http://api.ipify.org/?format=json").subscribe((res: any) => {
+      this.ipAddress = res.ip;
+    });
+  }
+
   getIPAddress() {
-    this.http.post("http://localhost/bankauth/User/getuser.php",  {"cus_id": this.userid}).subscribe((res: any) => {
+    this.bankname;
+    this.http.post("http://localhost/bankauth/User/getuser.php",  {"cus_id": this.userid, "cus_bank":this.bankname }).subscribe((res: any) => {
       localStorage.setItem('userdetails',JSON.stringify(res));
       let datas = JSON.parse(localStorage.getItem('userdetails'));
+      this.user_id = datas[0].cust_id;
       this.username = datas[0].cus_name;
       this.address = datas[0].cus_address;
       this.dob = datas[0].cus_dob;
+      this.email = datas[0].cus_email;
       this.genter = datas[0].cus_gender;
+      this.bankname = datas[0].cus_bank;
       this.mobile = datas[0].cus_contactno;
       this.accountsno = datas[0].cus_accountno;
       this.pincode = datas[0].cus_pincode;
       this.amount = datas[0].cus_amount;
     });
   }
-
 
   formSubmit() {
     let postData = {
@@ -62,9 +77,12 @@ export class UseraccountComponent implements OnInit {
       "cus_dob": this.dob,
       "cus_gender": this.genter,
       "cus_contactno": this.mobile,
+      "cus_email": this.email,
+      "cus_bank": this.bankname,
       "cus_accountno": this.accountsno,
       "cus_pincode": this.pincode,
       "cus_amount": this.amount,
+      "cus_ip": this.ipAddress,
     }
     this.http.post(this.apiUrl, postData).subscribe(
       (res: any) => {
@@ -74,9 +92,6 @@ export class UseraccountComponent implements OnInit {
         } else if (res.result == 'User Aleardy Exist.!') {
         }
       },
-      err => {
-        alert(JSON.stringify(err));
-      }
     );
   }
   formClear(){
@@ -86,6 +101,8 @@ export class UseraccountComponent implements OnInit {
     this.mobile = '';
     this.accountsno = '';
     this.pincode = '';
+    this.amount = '';
+    this.email = '';
     this.amount = '';
   }
   

@@ -41,6 +41,8 @@ export class WithdrawComponent implements OnInit {
       "cus_pincode" : datas[0].cus_pincode,
       "cus_amount" : datas[0].cus_amount,
       "removeamount" : this.removeamount,
+      "cus_bank" : datas[0].cus_bank,
+
     }
     this.http.post(this.apiUrl, postData).subscribe(
       (res: any) => {
